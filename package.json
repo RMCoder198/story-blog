@@ -1,17 +1,6 @@
 {
   "name": "story-blog",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-
-  },
   "author": "Rahul singh mawari",
   "license": "ISC",
   "dependencies": {
@@ -27,9 +16,45 @@
     "mongoose": "^5.0.12",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^9.4.1"
+    "validator": "^9.4.1",
+    "@material-ui/system": "^3.0.0-alpha.2",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.5",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.22.0",
+    "react": "^16.3.1",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.3.1",
+    "react-moment": "^0.7.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.1.4",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
-  }
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others \"nodemon server/server.js\" \" react-scripts start\"",
+    "start-react": "react-scripts start",
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+  },
+  "proxy": "http://localhost:5000",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
