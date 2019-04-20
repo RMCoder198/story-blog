@@ -27,7 +27,7 @@ class editPost extends React.Component {
         text: this.props.post.text,
         img: this.props.post.img
       });
-    if (!this.props.auth) this.props.history.push("/");
+    if (!this.props.auth) this.props.history.push("/login");
   if(this.props.errors) this.setState({open:true,error:'some error has occured plese retry'})
   }
   handleClick() {

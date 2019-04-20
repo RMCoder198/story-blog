@@ -18,7 +18,7 @@ class createPost extends React.Component {
 
 componentDidUpdate(){
   if(!this.props.auth)  
-    this.props.history.push('/')
+    this.props.history.push('/login')
 }
 handleClose= ()=>
 {

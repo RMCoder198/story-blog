@@ -73,13 +73,15 @@ class managePost extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    if (!this.props.auth) this.props.history.push("/");
+  
+  static getDerivedStateFromProps(next,pre){
+    if (!next.auth) next.history.push("/login");
+    return next
   }
   componentDidMount() {
     const id = this.props.user.id;
     this.props.getPostByUserId(id);
-    if (!this.props.auth) this.props.history.push("/");
+    if (!this.props.auth) this.props.history.push("/login");
   }
 
   handleClose = () => {
