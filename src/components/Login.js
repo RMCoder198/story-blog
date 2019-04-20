@@ -30,7 +30,7 @@ class Login extends React.Component {
       email: "",
       password: "",
       errors: {},
-      open:false
+      open: false
     };
   }
   componentDidMount() {
@@ -39,14 +39,12 @@ class Login extends React.Component {
       this.props.history.push("/");
     }
   }
-componentWillReceiveProps(next,pre){
-  if(next.errors)
-  if(this.props.errors) this.setState({open:true})
-
-}
-  componentDidUpdate(next,pre) {
-    if(next!== pre){
-    if (this.props.auth) this.props.history.push("/");
+  componentWillReceiveProps(next, pre) {
+    if (next.errors) if (this.props.errors) this.setState({ open: true });
+  }
+  componentDidUpdate(next, pre) {
+    if (next !== pre) {
+      if (this.props.auth) this.props.history.push("/");
     }
   }
 
@@ -57,11 +55,10 @@ componentWillReceiveProps(next,pre){
     };
     this.props.loginUser(user);
   }
-  handleClose= ()=>
-  {
-    this.setState({open:false})
-  }
- 
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -104,12 +101,6 @@ componentWillReceiveProps(next,pre){
           </Grid>
           <Grid container alignItems="center" justify="space-between">
             <Grid item>
-              <FormControlLabel
-                control={<Checkbox color="primary" />}
-                label="Remember me"
-              />
-            </Grid>
-            <Grid item>
               <Typography
                 style={{ textTransform: "none" }}
                 variant="text"
@@ -132,8 +123,8 @@ componentWillReceiveProps(next,pre){
         </div>
         <Snackbar
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
+            vertical: "bottom",
+            horizontal: "left"
           }}
           open={this.state.open}
           autoHideDuration={6000}
@@ -142,12 +133,13 @@ componentWillReceiveProps(next,pre){
           <MySnackbarContent
             onClose={this.handleClose}
             variant="error"
-            message={this.props.errors?'Enter registered email and correct password'  :''}
+            message={
+              this.props.errors
+                ? "Enter registered email and correct password"
+                : ""
+            }
           />
-           
         </Snackbar>
-        
-
       </Paper>
     );
   }
