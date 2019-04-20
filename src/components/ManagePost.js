@@ -79,10 +79,17 @@ class managePost extends React.Component {
     return next
   }
   componentDidMount() {
-    const id = this.props.user.id;
-    this.props.getPostByUserId(id);
-    if (!this.props.auth) this.props.history.push("/login");
-  }
+
+    if (!this.props.auth) 
+    {
+      this.props.history.push("/login");
+  
+    }else{
+      const id = this.props.user.id;
+      this.props.getPostByUserId(id);
+    }
+}
+
 
   handleClose = () => {
     this.setState({ open: false });
